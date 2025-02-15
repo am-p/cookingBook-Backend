@@ -10,7 +10,8 @@ class Server {
 
 	 this.paths = {
 	     users: '/api/users',
-	     auth: '/api/auth'
+	     auth: '/api/auth',
+	     recipes: '/api/recipes'
 	 }
 	 this.conectarDB();
 	 this.middlewares();
@@ -30,6 +31,7 @@ class Server {
     routes() {
 	this.app.use(this.paths.users, require('../routes/users'));
 	this.app.use(this.paths.auth, require('../routes/auth'));
+	this.app.use(this.paths.recipes, require('../routes/recipes'));
     }
 
     listen() {
